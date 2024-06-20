@@ -1,0 +1,11 @@
+.shop-sidebar-left {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 150px;
+    padding-top: 100px;
+    z-index: 1;
+    background: rgb(32,214,255);
+    background: linear-gradient(180deg, rgba(32,214,255,1) 100px, rgba(0,133,185,1) 100%);
+    border-right: black solid 1px;
+}

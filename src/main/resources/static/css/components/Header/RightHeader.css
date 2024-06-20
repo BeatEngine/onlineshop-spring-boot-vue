@@ -1,0 +1,11 @@
+.header-right {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 150px;
+    top: 0;
+    align-content: center;
+    height:100%;
+    width: calc(100% - 150px - 100px);
+    padding-inline: 30px;
+}

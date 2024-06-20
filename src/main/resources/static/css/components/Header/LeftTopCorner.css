@@ -1,0 +1,11 @@
+.header-left-top-corner {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+}
+
+.shop-header-title
+{
+    font-size: 20pt;
+}

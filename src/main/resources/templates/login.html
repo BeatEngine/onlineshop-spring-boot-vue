@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Onlineshop - Login</title>
+    <link rel="stylesheet" th:href="@{/css/security/loginAndRegister.css}"></link>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"></link>
+</head>
+<body>
+<div class="centered blue-shine-background">
+    <form class="login-form" th:action="@{/auth/login}" method="post">
+        <div><label class="form-label">E-mail: <input class="form-control form-control-transparent" type="text" name="email"/> </label></div>
+        <div><label class="form-label">Password: <input class="form-control form-control-transparent" type="password" name="password"/> </label></div>
+        <div><input class="btn btn-success" type="submit" value="Sign In"/></div>
+        <div class="auth-error" th:if="${loginError != null}" th:text="${loginError}"></div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <div>
+            <a th:href="@{/auth/register}">Create an account.</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

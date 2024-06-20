@@ -1,0 +1,8 @@
+.header-right-top-corner {
+    position: absolute;
+    display: inline-block;
+    align-content: center;
+    height:100%;
+    width: 100px;
+    right: 0;
+}
