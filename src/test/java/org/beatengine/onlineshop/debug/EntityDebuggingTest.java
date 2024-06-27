@@ -12,8 +12,8 @@ public class EntityDebuggingTest {
     public void debugEntityTest()
     {
         User user = new User();
-        user.setId(BigInteger.valueOf(5L));
-        user.setPictureId(BigInteger.valueOf(7L));
+        user.setId(5L);
+        user.setPictureId(7L);
         user.setEmail("mail@test.de");
         user.setSha256Pass("38473hrj4j%&/&(Df78efs");
         user.setDisplayName("Tester Test");

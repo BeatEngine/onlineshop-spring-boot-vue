@@ -26,7 +26,7 @@ public class Role extends SuperEntity{
     @JoinTable(name = "UserRole",
             joinColumns = { @JoinColumn(name = "roleId") },
             inverseJoinColumns = { @JoinColumn(name = "userId") })
-    Set<User> users;
+    public Set<User> users;
 
 
     public Long getId() {
