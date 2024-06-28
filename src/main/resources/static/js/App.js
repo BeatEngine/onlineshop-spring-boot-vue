@@ -26,7 +26,10 @@ createApp({
     setup() {
            //TODO Implement all the tabs for the views and only show the search on products and my-articles
         /* Load the account details from the server. */
-        GlobalState.loadAccountDetails();
+        const func = async function() {
+            await GlobalState.loadAccountDetails();
+        };
+        func();
 
         const headerTitle = ref('Demo Online-Shop');
         return { headerTitle };

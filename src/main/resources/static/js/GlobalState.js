@@ -16,6 +16,9 @@ export const GlobalState = reactive({
         MY_CART: 'my-cart',
         CURRENT_ORDER: 'current-order'
     },
+    dialogStates: {
+        myProfileMenuExpanded: false
+    },
     currentPage: 'articles',
     accountDetails: {
         auth: '',

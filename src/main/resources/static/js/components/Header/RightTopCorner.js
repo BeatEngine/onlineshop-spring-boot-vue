@@ -1,13 +1,18 @@
 import { ref } from '../../vue/vue.esm-browser.prod.min.js'
 import addCSS from '../../AppUtils.js'
 
+import MyProfileButton from './RightTopCorner/MyProfileButton.js'
+
 export default {
     name: 'RightTopCorner',
+    components: {
+        MyProfileButton
+    },
     props: {
     },
     template: `
         <div class="header-right-top-corner">
-                TODO: implement USER-PROFILE
+                <MyProfileButton />
         </div>
     `,
     setup(props) {

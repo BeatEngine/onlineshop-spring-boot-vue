@@ -35,6 +35,7 @@ public class SecurityConfiguration {
             "/auth/**",
             "/css/**",
             "/js/**",
+            "/img/**",
             "/api/**",
             "/favicon.ico"
     };
