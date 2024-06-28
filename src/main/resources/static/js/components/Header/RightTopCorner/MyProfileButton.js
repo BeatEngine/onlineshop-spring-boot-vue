@@ -4,11 +4,13 @@ import addCSS from '../../../AppUtils.js'
 import { GlobalState } from '../../../GlobalState.js'
 
 import ProfilePictureCircle from '../../Util/Picture/ProfilePictureCircle.js'
+import ClickableIconList from '../../Util/List/ClickableIconList.js'
 
 export default {
     name: 'MyProfileButton',
     components: {
-        ProfilePictureCircle
+        ProfilePictureCircle,
+        ClickableIconList
     },
     props: {
     },
@@ -17,7 +19,9 @@ export default {
             <ProfilePictureCircle :imagePath="noUserPicture" :width="'65px'" :height="'65px'"
             :toggleOnClick="GlobalState.dialogStates.myProfileMenuExpanded" @update:toggleOnClick="updateToggleOnClick" />
             <div class="my-profile-button-subject">{{subject}}</div>
-            <div v-show="GlobalState.dialogStates.myProfileMenuExpanded">TODO IMPLEMENT</div>
+            <div class="my-profile-button-list-container">
+                <ClickableIconList v-show="GlobalState.dialogStates.myProfileMenuExpanded" />
+            </div>
         </div>
     `,
     setup(props) {

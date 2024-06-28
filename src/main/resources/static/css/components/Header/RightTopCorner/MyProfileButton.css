@@ -16,3 +16,18 @@
     font-size: 8pt;
     overflow: hidden;
 }
+
+.my-profile-button-list-container {
+    z-index: 3;
+    display: block;
+    position: relative;
+    right: 0;
+    width: 200px;
+    margin-left: -105px;
+    background: rgb(0,133,185,1);
+    background: linear-gradient(180deg, rgba(0,133,185,1) 0%, rgba(244,32,255,1) 70%);
+    border-radius: 8px;
+    border-left: solid 1px black;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+}
