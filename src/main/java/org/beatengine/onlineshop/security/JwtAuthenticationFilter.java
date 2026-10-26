@@ -40,6 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         cookie.setHttpOnly(true); // TRUE --> Prevent CSS-Attacks
         cookie.setSecure(true);
         cookie.setPath("/");
+        cookie.setAttribute("SameSite","Lax"); // Prevent CSRF Attacks
         cookie.setMaxAge(JwtService.SESSION_TOKEN_LIFETIME_SEC);
         return cookie;
     }
