@@ -9,13 +9,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -60,8 +61,8 @@ public class SecurityConfiguration {
                                 .anyRequest()
                                 .fullyAuthenticated()
                 )
-                .csrf(csrf -> csrf.disable()).headers(headers -> headers.contentTypeOptions(
-                        contentTypeOptionsConfig -> contentTypeOptionsConfig.disable() // For JavaScript imports with different content-type
+                .csrf(AbstractHttpConfigurer::disable).headers(headers -> headers.contentTypeOptions(
+                        HeadersConfigurer.ContentTypeOptionsConfig::disable // For JavaScript imports with different content-type
                 ))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)

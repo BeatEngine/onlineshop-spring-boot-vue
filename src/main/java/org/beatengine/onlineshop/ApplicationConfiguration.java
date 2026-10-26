@@ -1,7 +1,6 @@
 package org.beatengine.onlineshop;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -58,8 +57,8 @@ public class ApplicationConfiguration {
         // Let Hibernate quote all names with '"' --> "Object"
         properties.setProperty("hibernate.globally_quoted_identifiers", "true");
 
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        //properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        //properties.setProperty("hibernate.hbm2ddl.auto", "update"); // For continual usage
+        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop"); //For first usage
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 
         return properties;
@@ -68,13 +67,9 @@ public class ApplicationConfiguration {
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        /*
-        * app.datasource.url=jdbc:postgresql://localhost/springboot_livetable
-          app.datasource.username=postgres
-          app.datasource.password=123456
-          app.datasource.pool-size=30*/
+        /* app.datasource.pool-size=30 */
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost/springboot_livetable");
+        dataSource.setUrl("jdbc:postgresql://localhost/springboot_onlineshop");
         dataSource.setUsername( "postgres" );
         dataSource.setPassword( "123456" );
         return dataSource;

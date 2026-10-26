@@ -19,7 +19,7 @@ public class EntityDebuggingTest {
         user.setDisplayName("Tester Test");
 
         final String debug = user.toString();
-        Assertions.assertEquals("{\"class\":\"User\", \"object\": { \"id\": \"5\" , \"email\": \"mail@test.de\" , \"displayName\": \"Tester Test\" , \"sha256Pass\": \"38473hrj4j%&/&(Df78efs\" , \"pictureId\": \"7\" , \"roles\": null, \"orders\": null, \"ratings\": null}}", debug);
+        Assertions.assertEquals("{\"class\":\"User\", \"object\": { \"id\": \"5\" , \"email\": \"mail@test.de\" , \"displayName\": \"Tester Test\" , \"sha256Pass\": \"38473hrj4j%&/&(Df78efs\" , \"pictureId\": \"7\" , \"roles\": null, \"orders\": null, \"ratings\": null, \"picture\": null}}", debug);
     }
 
 }

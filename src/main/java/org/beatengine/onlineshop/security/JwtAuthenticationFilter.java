@@ -5,6 +5,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jspecify.annotations.NonNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +16,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -23,7 +24,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
     }
 
-    private final JwtService jwtService = new JwtService();
+    @Autowired
+    private JwtService jwtService;
 
     private final UserDetailsService userDetailsService;
 
@@ -35,7 +37,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     public static Cookie getSessionCookie(final String jwtToken) {
         final Cookie cookie = new Cookie(AUTH_COOKIE_NAME, jwtToken);
-        cookie.setHttpOnly(true);
+        cookie.setHttpOnly(true); // TRUE --> Prevent CSS-Attacks
         cookie.setSecure(true);
         cookie.setPath("/");
         cookie.setMaxAge(JwtService.SESSION_TOKEN_LIFETIME_SEC);
@@ -44,8 +46,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain)
+                                    @NonNull HttpServletResponse response,
+                                    @NonNull FilterChain filterChain)
             throws ServletException, IOException {
         //if(request.getHeader())
         if (request.getServletPath().startsWith("/auth")) {

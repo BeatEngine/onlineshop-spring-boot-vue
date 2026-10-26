@@ -1,5 +1,6 @@
 package org.beatengine.onlineshop.database;
 
+import org.beatengine.onlineshop.Onlineshop;
 import org.beatengine.onlineshop.entity.Role;
 import org.beatengine.onlineshop.entity.User;
 import org.beatengine.onlineshop.entity.mapping.AccountDetail;
@@ -9,19 +10,17 @@ import org.beatengine.onlineshop.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE) //Using the real database (configure a real test-database)!!!
+@ContextConfiguration(classes = Onlineshop.class)
+@SpringBootTest
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
 public class UserRepositoryTest {
 
@@ -30,9 +29,6 @@ public class UserRepositoryTest {
 
     @Autowired
     RoleRepository roleRepository;
-
-    @Autowired
-    TestEntityManager entityManager;
 
     private void assertUnorderedListsEquals(final List<String> expected , final List<String> actual)
     {
