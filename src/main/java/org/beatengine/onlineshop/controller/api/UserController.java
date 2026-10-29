@@ -1,5 +1,6 @@
 package org.beatengine.onlineshop.controller.api;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import org.beatengine.onlineshop.entity.User;
 import org.beatengine.onlineshop.entity.mapping.AccountDetail;
@@ -18,6 +19,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name = "UserController", description = "Every operation around users.")
 @RestController
 @RequestMapping("/api/account")
 public class UserController {

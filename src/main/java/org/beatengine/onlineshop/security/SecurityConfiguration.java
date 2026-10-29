@@ -38,7 +38,10 @@ public class SecurityConfiguration {
             "/js/**",
             "/img/**",
             "/api/**",
-            "/favicon.ico"
+            "/favicon.ico",
+            "/v3/api-docs/**", /* OpenApi //todo only for debug  */
+            "/swagger-ui.html",
+            "/swagger-ui/**" /* //todo only for debug  */
     };
 
     private final JwtAuthenticationFilter jwtAuthFilter;
