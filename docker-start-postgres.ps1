@@ -3,3 +3,4 @@ docker run --name pg-onlineshop-demo -e "POSTGRES_PASSWORD=${sqlpw}" -p 5432:543
 # 2. Wait a few seconds for Postgres to fully boot up, then run the SQL:
 Start-Sleep -Seconds 7
 docker exec -i pg-onlineshop-demo psql -U postgres --% -c "CREATE DATABASE springboot_onlineshop;"
+docker exec -i pg-onlineshop-demo psql -U postgres --% -c "CREATE DATABASE test_springboot_onlineshop;"

@@ -1,11 +1,9 @@
 package org.beatengine.onlineshop.entity.mapping;
 
-import org.beatengine.onlineshop.entity.User;
-import org.beatengine.onlineshop.repository.UserRepository;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.BiPredicate;
 
 /**
  * The mapping for the UserControllerApi<br>
@@ -65,6 +63,11 @@ public class AccountDetails {
         return details;
     }
 
+    public  AccountDetails()
+    {
+
+    }
+
     public static AccountDetails unauthenticated() {
         return unauthenticated(null);
     }
@@ -92,4 +95,21 @@ public class AccountDetails {
     public String getAuth() {
         return auth;
     }
+
+
+    public static BiPredicate<AccountDetails, AccountDetails> INTEGRATION_TEST_EQUALS = new BiPredicate<AccountDetails, AccountDetails>() {
+        @Override
+        public boolean test(AccountDetails accountDetails, AccountDetails accountDetails2) {
+            boolean eq = accountDetails.getAuth().equals(accountDetails2.getAuth())
+                    && accountDetails.getDisplayName().equals(accountDetails2.getDisplayName())
+                    && accountDetails.getEmail().equals(accountDetails2.getEmail())
+                    && accountDetails.getUserId().equals(accountDetails2.getUserId())
+                    && accountDetails.getUserRoles().equals(accountDetails2.getUserRoles());
+            if(accountDetails.getPictureId() != null)
+            {
+                eq = eq && accountDetails.getPictureId().equals(accountDetails2.getPictureId());
+            }
+            return eq;
+        }
+    };
 }

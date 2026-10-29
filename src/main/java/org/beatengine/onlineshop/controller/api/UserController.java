@@ -29,7 +29,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-
+    public static String GET_DETAILS_PATH_TEST = "/api/account/details";
     @GetMapping("/details")
     public AccountDetails getDetails(@CookieValue(name = JwtAuthenticationFilter.AUTH_COOKIE_NAME, required = true) final String token/*,
                                      final HttpServletResponse response*/)

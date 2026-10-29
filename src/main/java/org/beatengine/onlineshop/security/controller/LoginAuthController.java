@@ -100,6 +100,7 @@ public class LoginAuthController {
         return redirect;
     }
 
+    public static String LOGIN_AUTH_PATH_TEST = "/auth/login";
     /**
      * Try to sign in the user or show the failure.
      * @return A Thymeleaf model for the login-page
